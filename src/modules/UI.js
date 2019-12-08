@@ -88,6 +88,45 @@ class UI {
     this.titleInput.value = data.title;
     this.bodyInput.value = data.body;
     this.idInput.value = data.id;
+
+    this.changeFormState('edit');
+  }
+
+  // Clear ID hidden value
+  clearIdInput() {
+    this.idInput.value = '';
+  }
+
+  // Change the form state
+  changeFormState(type) {
+    if (type === 'edit') {
+      this.postSubmit.textContent = 'Update Post';
+      this.postSubmit.classList.add('btn-warning');
+      this.postSubmit.classList.remove('btn-primary');
+
+      // Create cancel button
+      const button = document.createElement('button');
+      button.className = 'btn btn-light btn-block post-cancel';
+      button.appendChild(document.createTextNode('Cancel Edit'));
+      // Get parent
+      const cardForm = document.querySelector('.card-form');
+      // Insert cancel button
+      cardForm.append(button);
+    } else {
+      this.postSubmit.textContent = 'Post It';
+      this.postSubmit.classList.add('btn-primary');
+      this.postSubmit.classList.remove('btn-warning');
+
+      // Remove cancel button if in DOM
+      if (document.querySelector('.post-cancel')) {
+        document.querySelector('.post-cancel').remove();
+      }
+
+      // Clear ID from hidden field
+      this.clearIdInput();
+      // Clear form fields
+      this.clearFields();
+    }
   }
 }
 
