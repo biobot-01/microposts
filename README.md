@@ -3,6 +3,7 @@
 A JavaScript Frontend CRUD Posts App using ES6 Modules & JSON Server for the REST API. Code is transpiled using Webpack & Babel.
 
 ### Version
+
 1.0.0
 
 ## Usage
@@ -15,7 +16,16 @@ Install the dependencies
 $ npm install
 ```
 
+### JSON Server
+
+To run a fake JSON REST API Server - Runs json-server
+
+```sh
+$ npm json:serve
+```
+
 ### Serve
+
 To serve in the browser  - Runs webpack-dev-server
 
 ```sh
@@ -23,6 +33,7 @@ $ npm start
 ```
 
 ### Build
+
 Compile and build
 
 ```sh
